@@ -1,6 +1,6 @@
 {
   "name": "next-app-router-transitions",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "type": "module",
   "description": "Sleek and seamless page transitions for Next.js App Router - Elevate your app's UX with fluid navigation",
   "main": "dist/index.js",
@@ -31,6 +31,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/your-repo-name.git"
-  }
+    "url": "https://github.com/theogenejr/next-app-router-transitions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theogenejr/next-app-router-transitions/issues"
+  },
+  "homepage": "https://github.com/theogenejr/next-app-router-transitions#readme"
 }
