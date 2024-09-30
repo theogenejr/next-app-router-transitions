@@ -1,6 +1,6 @@
 {
   "name": "next-app-router-transitions",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "type": "module",
   "description": "Sleek and seamless page transitions for Next.js App Router - Elevate your app's UX with fluid navigation",
   "main": "dist/index.js",
@@ -16,8 +16,8 @@
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "next": "^13.0.0 || ^14.0.0",
-    "framer-motion": "^10.0.0 || ^11.0.0"
+    "next": "^14.0.0",
+    "framer-motion": "^11.0.0"
   },
   "keywords": [
     "nextjs",

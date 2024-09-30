@@ -2,14 +2,7 @@ import React, { ReactNode, useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-export type TransitionType =
-  | "fade"
-  | "slide"
-  | "block"
-  | "multiBlock"
-  | "spiral"
-  | "blinds"
-  | "bounce";
+export type TransitionType = "block" | "multiBlock" | "blinds";
 
 export interface PageTransitionProps {
   children: ReactNode;
@@ -19,15 +12,8 @@ export interface PageTransitionProps {
   ease?: string | number[];
   zIndex?: number;
 }
+
 const transitions: Record<TransitionType, Variants> = {
-  fade: {
-    initial: { opacity: 1 },
-    exit: { opacity: 0 },
-  },
-  slide: {
-    initial: { y: 0 },
-    exit: { y: "-100%" },
-  },
   block: {
     initial: { height: "100%" },
     exit: { height: 0 },
@@ -36,23 +22,15 @@ const transitions: Record<TransitionType, Variants> = {
     initial: { y: 0 },
     exit: { y: "-100%" },
   },
-  spiral: {
-    initial: { scale: 1, rotate: 0, opacity: 1 },
-    exit: { scale: 0, rotate: 180, opacity: 0 },
-  },
   blinds: {
     initial: { scaleY: 1 },
     exit: { scaleY: 0 },
-  },
-  bounce: {
-    initial: { y: 0 },
-    exit: { y: "-100%" },
   },
 };
 
 export default function PageTransition({
   children,
-  transitionType = "fade",
+  transitionType = "block",
   backgroundColor = "black",
   duration = 0.75,
   ease = "easeInOut",
@@ -78,23 +56,12 @@ export default function PageTransition({
     animate: "exit",
     exit: "initial",
     transition: { duration, ease },
-    className: `fixed inset-0 pointer-events-none`,
+    className: "fixed inset-0 pointer-events-none",
     style: { backgroundColor, zIndex },
   };
 
   const renderTransitionElement = () => {
     switch (transitionType) {
-      case "fade":
-      case "slide":
-      case "spiral":
-      case "bounce":
-        return (
-          <motion.div
-            key={`${transitionType}-${pathname}`}
-            variants={transitions[transitionType]}
-            {...commonProps}
-          />
-        );
       case "block":
         return (
           <>

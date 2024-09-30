@@ -7,7 +7,7 @@ applications.
 
 ## Features
 
-- 🎭 Multiple transition effects (fade, slide, block, spiral, and more!)
+- 🎭 Multiple transition effects (block, multiBlock, blinds)
 - 🔧 Fully customizable (duration, ease, colors)
 - 📱 Responsive and accessible
 - 🧩 Seamless integration with Next.js App Router
@@ -41,7 +41,7 @@ export default function TransitionLayout({
 }) {
   return (
     <TransitionWrapper
-      transitionType="fade"
+      transitionType="block"
       duration={0.5}
       backgroundColor="#000">
       {children}
@@ -77,28 +77,42 @@ your entire application.
 
 The `TransitionWrapper` component accepts the following props:
 
-| Prop            | Type               | Default     | Description                                                                                      |
-| --------------- | ------------------ | ----------- | ------------------------------------------------------------------------------------------------ |
-| transitionType  | string             | 'fade'      | Type of transition effect ('fade', 'slide', 'block', 'multiBlock', 'spiral', 'blinds', 'bounce') |
-| duration        | number             | 0.75        | Duration of the transition in seconds                                                            |
-| backgroundColor | string             | 'black'     | Background color of the transition element                                                       |
-| ease            | string \| number[] | 'easeInOut' | Easing function for the transition                                                               |
-| zIndex          | number             | 50          | z-index of the transition element                                                                |
+| Prop            | Type               | Default     | Description                                                 |
+| --------------- | ------------------ | ----------- | ----------------------------------------------------------- |
+| transitionType  | string             | 'block'     | Type of transition effect ('block', 'multiBlock', 'blinds') |
+| duration        | number             | 0.75        | Duration of the transition in seconds                       |
+| backgroundColor | string             | 'black'     | Background color of the transition element                  |
+| ease            | string \| number[] | 'easeInOut' | Easing function for the transition                          |
+| zIndex          | number             | 50          | z-index of the transition element                           |
 
 ## Examples
 
-### Fade Transition
+### Block Transition
 
 ```tsx
-<TransitionWrapper transitionType="fade" duration={0.3} backgroundColor="#fff">
+<TransitionWrapper transitionType="block" duration={0.5} backgroundColor="#000">
   {children}
 </TransitionWrapper>
 ```
 
-### Slide Transition
+### MultiBlock Transition
 
 ```tsx
-<TransitionWrapper transitionType="slide" duration={0.5} backgroundColor="#000">
+<TransitionWrapper
+  transitionType="multiBlock"
+  duration={0.7}
+  backgroundColor="#fff">
+  {children}
+</TransitionWrapper>
+```
+
+### Blinds Transition
+
+```tsx
+<TransitionWrapper
+  transitionType="blinds"
+  duration={0.6}
+  backgroundColor="#333">
   {children}
 </TransitionWrapper>
 ```
